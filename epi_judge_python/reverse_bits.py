@@ -1,9 +1,20 @@
+import sys
+
 from test_framework import generic_test
 
 
 def reverse_bits(x: int) -> int:
-    # TODO - you fill in here.
-    return 0
+    i = 0
+    j = 64 - 1
+
+    result = 0
+    while i < j:
+        result |= ((x >> i & 1) << j) | (x >> j & 1) << i
+
+        i += 1
+        j -= 1
+
+    return result
 
 
 if __name__ == '__main__':
